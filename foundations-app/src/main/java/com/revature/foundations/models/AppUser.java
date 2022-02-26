@@ -16,32 +16,21 @@ public class AppUser {
 	private boolean is_active;
 	private UserRole role;
 
-    public AppUser() {
-        super();
-    }
-
-    public AppUser(String user_id, 
-				   String username, 
-				   String email, 
-                   String password, 
-				   String given_name,
-				   String surname,
-				   boolean is_active) {
-
+    public AppUser(String user_id, String username, String email, String password, String given_name, String surname, boolean is_active) {
         this.user_id = user_id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.given_name = given_name;
-		this.surname = surname;
-		this.is_active = is_active; 
+        this.surname = surname;
+        this.is_active = is_active;
     }
 
-    public String getUserId() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUserId(String user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 
@@ -69,11 +58,11 @@ public class AppUser {
         this.password = password;
     }
 
-    public String getGivenName() {
+    public String getGiven_name() {
         return given_name;
     }
 
-    public void setGivenName(String given_name) {
+    public void setGiven_name(String given_name) {
         this.given_name = given_name;
     }
 
@@ -85,11 +74,11 @@ public class AppUser {
         this.surname = surname;
     }
 
-    public boolean getIsActive() {
+    public boolean isIs_active() {
         return is_active;
     }
 
-    public void setIsActive(boolean is_active) {
+    public void setIs_active(boolean is_active) {
         this.is_active = is_active;
     }
 
@@ -104,22 +93,14 @@ public class AppUser {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof AppUser)) return false;
         AppUser appUser = (AppUser) o;
-        return Objects.equals(user_id, appUser.user_id)
-                && Objects.equals(username, appUser.username)
-                && Objects.equals(email, appUser.email)
-                && Objects.equals(password, appUser.password)
-                && Objects.equals(given_name, appUser.given_name)
-                && Objects.equals(surname, appUser.surname)
-				&& Objects.equals(is_active, appUser.is_active)
-                && Objects.equals(role, appUser.role);
+        return isIs_active() == appUser.isIs_active() && Objects.equals(getUser_id(), appUser.getUser_id()) && Objects.equals(getUsername(), appUser.getUsername()) && Objects.equals(getEmail(), appUser.getEmail()) && Objects.equals(getPassword(), appUser.getPassword()) && Objects.equals(getGiven_name(), appUser.getGiven_name()) && Objects.equals(getSurname(), appUser.getSurname()) && Objects.equals(getRole(), appUser.getRole());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, username, email, password, given_name, 
-							surname, is_active, role);
+        return Objects.hash(getUser_id(), getUsername(), getEmail(), getPassword(), getGiven_name(), getSurname(), isIs_active(), getRole());
     }
 
     @Override
@@ -131,10 +112,9 @@ public class AppUser {
                 ", password='" + password + '\'' +
                 ", given_name='" + given_name + '\'' +
                 ", surname='" + surname + '\'' +
-				", is_active='" + is_active + '\'' +
+                ", is_active=" + is_active +
                 ", role=" + role +
                 '}';
     }
-
 }
 
