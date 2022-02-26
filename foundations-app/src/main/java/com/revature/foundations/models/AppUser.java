@@ -57,7 +57,7 @@ public class AppUser {
         return email;
     }
 
-    public void set(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -73,7 +73,7 @@ public class AppUser {
         return given_name;
     }
 
-    public void set(String given_name) {
+    public void setGivenName(String given_name) {
         this.given_name = given_name;
     }
 
@@ -85,8 +85,16 @@ public class AppUser {
         this.surname = surname;
     }
 
-    public UserRole getIsActive() {
+    public boolean getIsActive() {
         return is_active;
+    }
+
+    public void setIsActive(boolean is_active) {
+        this.is_active = is_active;
+    }
+
+    public UserRole getRole() {
+        return role;
     }
 
     public void setRole(UserRole role) {
