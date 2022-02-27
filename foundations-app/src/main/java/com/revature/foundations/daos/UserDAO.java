@@ -1,10 +1,10 @@
-package com.revature.quizzard.daos;
+package com.revature.foundations.daos;
 
-import com.revature.quizzard.models.AppUser;
-import com.revature.quizzard.models.UserRole;
-import com.revature.quizzard.util.ConnectionFactory;
-import com.revature.quizzard.util.exceptions.DataSourceException;
-import com.revature.quizzard.util.exceptions.ResourcePersistenceException;
+import com.revature.foundations.models.AppUser;
+import com.revature.foundations.models.UserRole;
+import com.revature.foundations.util.ConnectionFactory;
+import com.revature.foundations.util.exceptions.DataSourceException;
+import com.revature.foundations.util.exceptions.ResourcePersistenceException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class UserDAO implements CrudDAO<AppUser> {
 											 "ers_user_roles.role " +
 									  "FROM ers_users " + 
 									  "JOIN ers_user_roles " +
-									  "ON ers_users.role_id=ers_user_roles.role_id;"
+									  "ON ers_users.role_id=ers_user_roles.role_id";
 
 	public AppUser findUserByUsername(String username) {
 
@@ -41,13 +41,13 @@ public class UserDAO implements CrudDAO<AppUser> {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = new AppUser();
-                user.setUserId(rs.getString("user_id"));
+                user.setUser_id(rs.getString("user_id"));
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
-                user.setgivenName(rs.getString("given_name"));
+                user.setGiven_name(rs.getString("given_name"));
                 user.setSurname(rs.getString("surname"));
-				user.setIsActive(rs.getBoolean("is_active");
+				user.setIs_active(rs.getBoolean("is_active"));
                 user.setRole(new UserRole(rs.getString("role_id"), rs.getString("role")));
             }
 
@@ -70,13 +70,13 @@ public class UserDAO implements CrudDAO<AppUser> {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = new AppUser();
-                user.setUserId(rs.getString("user_id"));
+                user.setUser_id(rs.getString("user_id"));
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
-                user.setgivenName(rs.getString("given_name"));
+                user.setGiven_name(rs.getString("given_name"));
                 user.setSurname(rs.getString("surname"));
-				user.setIsActive(rs.getBoolean("is_active");
+                user.setIs_active(rs.getBoolean("is_active"));
                 user.setRole(new UserRole(rs.getString("role_id"), rs.getString("role")));
 
             }
@@ -102,13 +102,13 @@ public class UserDAO implements CrudDAO<AppUser> {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 authUser = new AppUser();
-                authUser.setUserId(rs.getString("user_id"));
+                authUser.setUser_id(rs.getString("user_id"));
                 authUser.setUsername(rs.getString("username"));
                 authUser.setEmail(rs.getString("email"));
                 authUser.setPassword(rs.getString("password"));
-                authUser.setgivenName(rs.getString("given_name"));
+                authUser.setGiven_name(rs.getString("given_name"));
                 authUser.setSurname(rs.getString("surname"));
-				authUser.setIsActive(rs.getBoolean("is_active");
+                authUser.setIs_active(rs.getBoolean("is_active"));
                 authUser.setRole(new UserRole(rs.getString("role_id"), rs.getString("role")));
             }
 
@@ -126,13 +126,13 @@ public class UserDAO implements CrudDAO<AppUser> {
 
             conn.setAutoCommit(false);
             PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ers_users VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            pstmt.setString(1, newUser.getUserId());
+            pstmt.setString(1, newUser.getUser_id());
             pstmt.setString(2, newUser.getUsername());
             pstmt.setString(3, newUser.getEmail());
             pstmt.setString(4, newUser.getPassword());
-            pstmt.setString(5, newUser.getgivenName());
+            pstmt.setString(5, newUser.getGiven_name());
             pstmt.setString(6, newUser.getSurname());
-			pstmt.setBoolean(7, newUser.getIsActive());
+			pstmt.setBoolean(7, newUser.isIs_active());
             pstmt.setString(8, newUser.getRole().getId());
 
             int rowsInserted = pstmt.executeUpdate();
@@ -161,13 +161,13 @@ public class UserDAO implements CrudDAO<AppUser> {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = new AppUser();
-                user.setUserId(rs.getString("user_id"));
+                user.setUser_id(rs.getString("user_id"));
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
-                user.setgivenName(rs.getString("given_name"));
+                user.setGiven_name(rs.getString("given_name"));
                 user.setSurname(rs.getString("surname"));
-				user.setIsActive(rs.getBoolean("is_active");
+				user.setIs_active(rs.getBoolean("is_active"));
                 user.setRole(new UserRole(rs.getString("role_id"), rs.getString("role")));
             }
 
@@ -189,13 +189,13 @@ public class UserDAO implements CrudDAO<AppUser> {
             ResultSet rs = conn.createStatement().executeQuery(rootSelect);
             while (rs.next()) {
                 AppUser user = new AppUser();
-				user.setUserId(rs.getString("user_id"));
+				user.setUser_id(rs.getString("user_id"));
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword(rs.getString("password"));
-                user.setgivenName(rs.getString("given_name"));
+                user.setGiven_name(rs.getString("given_name"));
                 user.setSurname(rs.getString("surname"));
-				user.setIsActive(rs.getBoolean("is_active");
+				user.setIs_active(rs.getBoolean("is_active"));
                 user.setRole(new UserRole(rs.getString("role_id"), rs.getString("role")));
                 users.add(user);
             }
@@ -222,10 +222,10 @@ public class UserDAO implements CrudDAO<AppUser> {
             pstmt.setString(1, updatedUser.getUsername());
             pstmt.setString(2, updatedUser.getEmail());
             pstmt.setString(3, updatedUser.getPassword());
-            pstmt.setString(4, updatedUser.getGivenName());
+            pstmt.setString(4, updatedUser.getGiven_name());
             pstmt.setString(5, updatedUser.getSurname());
-            pstmt.setString(6, updatedUser.getIsActive());
-			pstmt.setSTring(7, updatedUser.getUserId());
+            pstmt.setString(6, String.valueOf(updatedUser.isIs_active()));
+			pstmt.setString(7, updatedUser.getUser_id());
 
             // TODO allow role to be updated as well
 

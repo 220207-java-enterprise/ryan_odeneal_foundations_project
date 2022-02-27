@@ -16,6 +16,10 @@ public class AppUser {
 	private boolean is_active;
 	private UserRole role;
 
+    public AppUser() {
+        super();
+    }
+
     public AppUser(String user_id, String username, String email, String password, String given_name, String surname, boolean is_active) {
         this.user_id = user_id;
         this.username = username;
