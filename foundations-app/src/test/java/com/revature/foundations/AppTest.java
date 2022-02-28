@@ -1,6 +1,7 @@
 package com.revature.foundations;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.models.AppUser;
@@ -30,19 +31,23 @@ public class AppTest
     }
 
     @Test
-    public void saveAUser() {
+    public void saveAUserFindAUserDeleteAUser() {
         UserRole aRole = new UserRole("test_role_id", "test_role");
         AppUser aUser = new AppUser("user_id", "username", "email", "password", "givenName", "surname", false, aRole);
         UserDAO dataObject = new UserDAO();
         dataObject.save(aUser);
+        assertEquals(dataObject.findUserByUsername("username"), aUser);
+        dataObject.deleteById(aUser.getRole().getId());
 
     }
 
-    @Test
+  /*  @Test
     public void deleteAUser(){
         UserRole aRole = new UserRole("test_role_id", "test_role");
         AppUser aUser = new AppUser("user_id", "username", "email", "password", "givenName", "surname", false, aRole);
         UserDAO dataObject = new UserDAO();
         dataObject.deleteById(aUser.getRole().getId());
     }
+
+   */
 }

@@ -23,11 +23,11 @@ public class UserDAO implements CrudDAO<AppUser> {
 											 "ers_users.given_name, " + 
 											 "ers_users.surname, " + 
 											 "ers_users.is_active, " + 
-											 "ers_users.role_id " +
+											 "ers_users.role_id, " +
 											 "ers_user_roles.role " +
 									  "FROM ers_users " + 
 									  "JOIN ers_user_roles " +
-									  "ON ers_users.role_id=ers_user_roles.role_id";
+									  "ON ers_users.role_id=ers_user_roles.role_id ";
 
 	public AppUser findUserByUsername(String username) {
 
@@ -37,7 +37,7 @@ public class UserDAO implements CrudDAO<AppUser> {
 
             PreparedStatement pstmt = conn.prepareStatement(rootSelect + "WHERE username = ?");
             pstmt.setString(1, username);
-
+            System.out.println(pstmt);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = new AppUser();

@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.revature.foundations.AppTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.351 s <<< FAILURE! - in com.revature.foundations.AppTest
-BdeleteAUser(com.revature.foundations.AppTest)  Time elapsed: 0.257 s  <<< ERROR!
-com.revature.foundations.util.exceptions.ResourcePersistenceException: Failed to delete user from data source
-	at com.revature.foundations.AppTest.BdeleteAUser(AppTest.java:46)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.604 s - in com.revature.foundations.AppTest

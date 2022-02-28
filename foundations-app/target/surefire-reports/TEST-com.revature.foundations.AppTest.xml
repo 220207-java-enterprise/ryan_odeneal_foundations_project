@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.foundations.AppTest" time="0.351" tests="3" errors="1" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.foundations.AppTest" time="0.604" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/home/ryan/jdk1.8.0_321/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter8277718984017852517.jar /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire 2022-02-27T18-18-50_593-jvmRun1 surefire4775426631362310705tmp surefire_07226053560401712182tmp"/>
+    <property name="sun.java.command" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter8516943512636548328.jar /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire 2022-02-27T20-05-22_105-jvmRun1 surefire908373972902306388tmp surefire_07870772749555758140tmp"/>
     <property name="surefire.test.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/test-classes:/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/classes:/home/ryan/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/home/ryan/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/ryan/.m2/repository/org/postgresql/postgresql/42.3.3/postgresql-42.3.3.jar:/home/ryan/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/ryan"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter8277718984017852517.jar"/>
+    <property name="surefire.real.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter8516943512636548328.jar"/>
     <property name="sun.boot.class.path" value="/home/ryan/jdk1.8.0_321/jre/lib/resources.jar:/home/ryan/jdk1.8.0_321/jre/lib/rt.jar:/home/ryan/jdk1.8.0_321/jre/lib/sunrsasign.jar:/home/ryan/jdk1.8.0_321/jre/lib/jsse.jar:/home/ryan/jdk1.8.0_321/jre/lib/jce.jar:/home/ryan/jdk1.8.0_321/jre/lib/charsets.jar:/home/ryan/jdk1.8.0_321/jre/lib/jfr.jar:/home/ryan/jdk1.8.0_321/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_321-b07"/>
@@ -58,13 +58,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="BdeleteAUser" classname="com.revature.foundations.AppTest" time="0.257">
-    <error message="Failed to delete user from data source" type="com.revature.foundations.util.exceptions.ResourcePersistenceException">com.revature.foundations.util.exceptions.ResourcePersistenceException: Failed to delete user from data source
-	at com.revature.foundations.AppTest.BdeleteAUser(AppTest.java:46)
-</error>
-    <system-out><![CDATA[0
-]]></system-out>
-  </testcase>
-  <testcase name="grabbingAConnection" classname="com.revature.foundations.AppTest" time="0.023"/>
-  <testcase name="AsaveAUser" classname="com.revature.foundations.AppTest" time="0.04"/>
+  <testcase name="grabbingAConnection" classname="com.revature.foundations.AppTest" time="0.421"/>
+  <testcase name="saveAUserFindAUserDeleteAUser" classname="com.revature.foundations.AppTest" time="0.133"/>
 </testsuite>
