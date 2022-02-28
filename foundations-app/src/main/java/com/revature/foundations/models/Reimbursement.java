@@ -45,7 +45,7 @@ public class Reimbursement {
 		this.author_id = author_id;
 		this.resolver_id = resolver_id;
 		this.type = type;
-		this.status=status;
+		this.status = status;
 	}
 
 	public String getReimb_id() {

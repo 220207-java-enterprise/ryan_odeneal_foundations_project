@@ -73,9 +73,9 @@ public class AppTest
         aUser3.setGiven_name("givenName3");
         assertNotEquals(dataObject.findUserByUsername("username3"), aUser3);
 
-        dataObject.deleteById(aUser3.getRole().getId());
-        dataObject.deleteById(aUser2.getRole().getId());
-        dataObject.deleteById(aUser.getRole().getId());
+        dataObject.deleteById(aUser3);
+        dataObject.deleteById(aUser2);
+        dataObject.deleteById(aUser);
 
     }
 
@@ -90,7 +90,7 @@ public class AppTest
         AppUser aUser2 = new AppUser("resolver_id", "username2", "email2", "password2", "givenName2", "surname2", false, aRole2);
         dataUserObject.save(aUser2);
 
-        ReimbursementType aType = new ReimbursementType("reimbursement_id", "reimbursement_type");
+        ReimbursementType aType = new ReimbursementType("reimbursement_type_id", "reimbursement_type");
         ReimbursementStatus aStatus = new ReimbursementStatus("status_id", "status_type");
         Timestamp aTimeStamp = new Timestamp(System.currentTimeMillis());
         Timestamp aTimeStamp2 = new Timestamp(System.currentTimeMillis());
@@ -104,8 +104,9 @@ public class AppTest
         ReimbursementDAO dataReimbursementObject = new ReimbursementDAO();
         dataReimbursementObject.save(aReimbursement);
 
-        //dataUserObject.deleteById(aUser.getRole().getId());
-        //dataUserObject.deleteById(aUser2.getRole().getId());
+        dataReimbursementObject.deleteById(aReimbursement);
+        dataUserObject.deleteById(aUser);
+        dataUserObject.deleteById(aUser2);
     }
 
   /*  @Test

@@ -108,7 +108,37 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Reimbursement objectToDelete) {
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
+            conn.setAutoCommit(false);
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ers_reimbursement_statuses WHERE status_id = ?");
+            pstmt.setString(1, objectToDelete.getStatus().getStatus_id());
+
+            int rowsInserted = pstmt.executeUpdate();
+            System.out.println(rowsInserted);
+            if (rowsInserted != 1) {
+                conn.rollback();
+                throw new ResourcePersistenceException("Failed to delete user from data source");
+            }
+
+            conn.commit();
+
+            conn.setAutoCommit(false);
+            PreparedStatement pstmt2 = conn.prepareStatement("DELETE FROM ers_reimbursement_types WHERE type_id = ?");
+            pstmt2.setString(1, objectToDelete.getType().getType_id());
+
+            int rowsInserted2 = pstmt2.executeUpdate();
+            System.out.println(rowsInserted);
+            if (rowsInserted2 != 1) {
+                conn.rollback();
+                throw new ResourcePersistenceException("Failed to delete user from data source");
+            }
+
+            conn.commit();
+
+        } catch (SQLException e) {
+            throw new DataSourceException(e);
+        }
     }
 }

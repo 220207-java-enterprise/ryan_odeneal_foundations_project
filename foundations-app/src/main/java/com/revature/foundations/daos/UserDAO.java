@@ -254,12 +254,12 @@ public class UserDAO implements CrudDAO<AppUser> {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(AppUser objectToDelete) {
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
             conn.setAutoCommit(false);
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ers_user_roles WHERE role_id = ?");
-            pstmt.setString(1, id);
+            pstmt.setString(1, objectToDelete.getRole().getId());
 
             int rowsInserted = pstmt.executeUpdate();
             System.out.println(rowsInserted);
