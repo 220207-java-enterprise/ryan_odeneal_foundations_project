@@ -37,7 +37,6 @@ public class UserDAO implements CrudDAO<AppUser> {
 
             PreparedStatement pstmt = conn.prepareStatement(rootSelect + "WHERE username = ?");
             pstmt.setString(1, username);
-            System.out.println(pstmt);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 user = new AppUser();
@@ -228,8 +227,8 @@ public class UserDAO implements CrudDAO<AppUser> {
                                                             "SET username = ?, " +
                                                                 "email = ?, " +
                                                                 "password = ?, " +
-                                                                "given_name = ? " +
-																"surname = ? " +
+                                                                "given_name = ?, " +
+																"surname = ?, " +
 																"is_active = ? " +
                                                             "WHERE user_id = ?");
             pstmt.setString(1, updatedUser.getUsername());
@@ -237,7 +236,7 @@ public class UserDAO implements CrudDAO<AppUser> {
             pstmt.setString(3, updatedUser.getPassword());
             pstmt.setString(4, updatedUser.getGiven_name());
             pstmt.setString(5, updatedUser.getSurname());
-            pstmt.setString(6, String.valueOf(updatedUser.isIs_active()));
+            pstmt.setBoolean(6, updatedUser.isIs_active());
 			pstmt.setString(7, updatedUser.getUser_id());
 
             // TODO allow role to be updated as well
