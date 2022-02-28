@@ -81,19 +81,31 @@ public class AppTest
 
     @Test
     public void testingReimbursementDAO() {
+        UserRole aRole = new UserRole("test_role_id", "test_role");
+        AppUser aUser = new AppUser("author_id", "username", "email", "password", "givenName", "surname", false, aRole);
+        UserDAO dataUserObject = new UserDAO();
+        dataUserObject.save(aUser);
+
+        UserRole aRole2 = new UserRole("test_role_id2", "test_role2");
+        AppUser aUser2 = new AppUser("resolver_id", "username2", "email2", "password2", "givenName2", "surname2", false, aRole2);
+        dataUserObject.save(aUser2);
+
         ReimbursementType aType = new ReimbursementType("reimbursement_id", "reimbursement_type");
         ReimbursementStatus aStatus = new ReimbursementStatus("status_id", "status_type");
         Timestamp aTimeStamp = new Timestamp(System.currentTimeMillis());
         Timestamp aTimeStamp2 = new Timestamp(System.currentTimeMillis());
         byte[] aBlobData = {(byte) 8, (byte) 7, (byte) 6, (byte) 5, (byte) 4, (byte) 3, (byte) 2, (byte) 1};
         Bytea aBlob = new Bytea(aBlobData);
-        Reimbursement aReimbursement = new Reimbursement("reimb_id", 12345.53,
+        Reimbursement aReimbursement = new Reimbursement("reimb_id", 45.53,
                                                          aTimeStamp, aTimeStamp2,
                                                          "description", aBlob,
                                                          "payment_id", "author_id",
                                                          "resolver_id", aType, aStatus);
-        ReimbursementDAO dataObject = new ReimbursementDAO();
-        dataObject.save(aReimbursement);
+        ReimbursementDAO dataReimbursementObject = new ReimbursementDAO();
+        dataReimbursementObject.save(aReimbursement);
+
+        //dataUserObject.deleteById(aUser.getRole().getId());
+        //dataUserObject.deleteById(aUser2.getRole().getId());
     }
 
   /*  @Test
