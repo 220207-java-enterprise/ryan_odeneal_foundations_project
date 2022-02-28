@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class Bytea implements Blob {
 
@@ -76,5 +77,18 @@ public class Bytea implements Blob {
     @Override
     public InputStream getBinaryStream(long pos, long length) throws SQLException {
         return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Bytea)) return false;
+        Bytea bytea = (Bytea) o;
+        return Arrays.equals(getBlob(), bytea.getBlob());
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(getBlob());
     }
 }

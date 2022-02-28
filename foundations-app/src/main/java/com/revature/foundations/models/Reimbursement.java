@@ -2,6 +2,8 @@ package com.revature.foundations.models;
 
 import com.revature.foundations.util.Bytea;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Objects;
 import java.sql.Blob;
 import java.sql.Timestamp;
@@ -14,7 +16,7 @@ public class Reimbursement {
 	private String reimb_id;
 	private double amount;
 	private Timestamp submitted;
-	private Timestamp Resolved;
+	private Timestamp resolved;
 	private String description;
 	private Bytea receipt;
 	private String payment_id;
@@ -38,7 +40,7 @@ public class Reimbursement {
 		this.reimb_id = reimb_id;
 		this.amount = amount;
 		this.submitted = submitted;
-		Resolved = resolved;
+		this.resolved = resolved;
 		this.description = description;
 		this.receipt = receipt;
 		this.payment_id = payment_id;
@@ -73,11 +75,11 @@ public class Reimbursement {
 	}
 
 	public Timestamp getResolved() {
-		return Resolved;
+		return resolved;
 	}
 
 	public void setResolved(Timestamp resolved) {
-		Resolved = resolved;
+		this.resolved = resolved;
 	}
 
 	public String getDescription() {
@@ -155,7 +157,7 @@ public class Reimbursement {
 				"reimb_id='" + reimb_id + '\'' +
 				", amount=" + amount +
 				", submitted=" + submitted +
-				", Resolved=" + Resolved +
+				", Resolved=" + resolved +
 				", description='" + description + '\'' +
 				", receipt=" + receipt +
 				", payment_id='" + payment_id + '\'' +

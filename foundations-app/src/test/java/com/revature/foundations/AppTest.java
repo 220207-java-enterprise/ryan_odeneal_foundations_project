@@ -104,6 +104,8 @@ public class AppTest
         ReimbursementDAO dataReimbursementObject = new ReimbursementDAO();
         dataReimbursementObject.save(aReimbursement);
 
+        assertEquals(dataReimbursementObject.getById("reimb_id"), aReimbursement);
+
         dataReimbursementObject.deleteById(aReimbursement);
         dataUserObject.deleteById(aUser);
         dataUserObject.deleteById(aUser2);
