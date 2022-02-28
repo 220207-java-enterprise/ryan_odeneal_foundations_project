@@ -104,6 +104,24 @@ public class AppTest
         ReimbursementDAO dataReimbursementObject = new ReimbursementDAO();
         dataReimbursementObject.save(aReimbursement);
 
+        ReimbursementType aType2 = new ReimbursementType("reimbursement_type_id2", "reimbursement_type2");
+        ReimbursementStatus aStatus2 = new ReimbursementStatus("status_id2", "status_type2");
+        Timestamp aTimeStamp3 = new Timestamp(System.currentTimeMillis());
+        Timestamp aTimeStamp4 = new Timestamp(System.currentTimeMillis());
+        byte[] aBlobData2 = {(byte) 14, (byte) 7, (byte) 6, (byte) 5, (byte) 4, (byte) 3, (byte) 2, (byte) 1};
+        Bytea aBlob2 = new Bytea(aBlobData2);
+        Reimbursement aReimbursement2 = new Reimbursement("reimb_id2", 47.53,
+                aTimeStamp3, aTimeStamp4,
+                "description2", aBlob2,
+                "payment_id2", "author_id",
+                "resolver_id", aType2, aStatus2);
+        dataReimbursementObject.save(aReimbursement2);
+
+        ArrayList<Reimbursement> reimbursementList = new ArrayList<>();
+        reimbursementList.add(aReimbursement);
+        reimbursementList.add(aReimbursement2);
+
+        assertEquals(dataReimbursementObject.getAll(), reimbursementList);
         assertEquals(dataReimbursementObject.getById("reimb_id"), aReimbursement);
 
         dataReimbursementObject.deleteById(aReimbursement);

@@ -7,11 +7,10 @@
     <list default="true" id="37e538b3-60f9-4043-a67c-35db9da5531e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/daos/ReimbursementDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/daos/ReimbursementDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/models/Reimbursement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/models/Reimbursement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/util/Bytea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/util/Bytea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/revature/foundations/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/revature/foundations/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/foundations/models/Reimbursement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/foundations/models/Reimbursement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/revature/foundations/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/revature/foundations/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +27,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

@@ -125,7 +125,31 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
 
     @Override
     public List<Reimbursement> getAll() {
-        return null;
+        List<Reimbursement> reimbursements = new ArrayList<>();
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+
+            ResultSet rs = conn.createStatement().executeQuery(rootSelect);
+            while (rs.next()) {
+                Reimbursement aReimbursement = new Reimbursement();
+                aReimbursement.setReimb_id(rs.getString("reimb_id"));
+                aReimbursement.setAmount(rs.getDouble("amount"));
+                aReimbursement.setSubmitted(rs.getTimestamp("submitted"));
+                aReimbursement.setResolved(rs.getTimestamp("resolved"));
+                aReimbursement.setDescription(rs.getString("description"));
+                aReimbursement.setReceipt(new Bytea(rs.getBytes("receipt")));
+                aReimbursement.setPayment_id(rs.getString("payment_id"));
+                aReimbursement.setAuthor_id(rs.getString("author_id"));
+                aReimbursement.setResolver_id(rs.getString("resolver_id"));
+                aReimbursement.setStatus(new ReimbursementStatus(rs.getString("status_id"), rs.getString("status")));
+                aReimbursement.setType(new ReimbursementType(rs.getString("type_id"), rs.getString("type")));
+                reimbursements.add(aReimbursement);
+            }
+        } catch (SQLException e) {
+            throw new DataSourceException(e);
+        }
+
+        return reimbursements;
     }
 
     @Override
