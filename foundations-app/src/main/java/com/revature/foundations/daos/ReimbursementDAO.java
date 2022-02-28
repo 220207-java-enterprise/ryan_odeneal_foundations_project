@@ -53,7 +53,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
             conn.commit();
 
             conn.setAutoCommit(false);
-            PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO ers_reimbursement_types VALUES (?, ?)");
+            PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO ers_reimbursement_statuses VALUES (?, ?)");
             pstmt2.setString(1, newObject.getStatus().getStatus_id());
             pstmt2.setString(2, newObject.getStatus().getStatus()); //THIS COULD BE A SOURCE OF ERROR. SCOPING WEIRDNESS.
 
@@ -66,9 +66,9 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
             conn.commit();
 
             conn.setAutoCommit(false);
-            PreparedStatement pstmt3 = conn.prepareStatement("INSERT INTO ers_users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement pstmt3 = conn.prepareStatement("INSERT INTO ers_reimbursements VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pstmt3.setString(1, newObject.getReimb_id());
-            pstmt3.setFloat(2, newObject.getAmount());
+            pstmt3.setDouble(2, newObject.getAmount());
             pstmt3.setTimestamp(3, newObject.getSubmitted());
             pstmt3.setTimestamp(4, newObject.getResolved());
             pstmt3.setString(5, newObject.getDescription());

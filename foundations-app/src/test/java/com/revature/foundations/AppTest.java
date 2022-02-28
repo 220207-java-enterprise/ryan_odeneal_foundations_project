@@ -4,15 +4,19 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+import com.revature.foundations.daos.ReimbursementDAO;
 import com.revature.foundations.daos.UserDAO;
-import com.revature.foundations.models.AppUser;
-import com.revature.foundations.models.UserRole;
+import com.revature.foundations.models.*;
+import com.revature.foundations.util.Bytea;
 import com.revature.foundations.util.ConnectionFactory;
 import org.junit.Test;
 
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -73,6 +77,23 @@ public class AppTest
         dataObject.deleteById(aUser2.getRole().getId());
         dataObject.deleteById(aUser.getRole().getId());
 
+    }
+
+    @Test
+    public void testingReimbursementDAO() {
+        ReimbursementType aType = new ReimbursementType("reimbursement_id", "reimbursement_type");
+        ReimbursementStatus aStatus = new ReimbursementStatus("status_id", "status_type");
+        Timestamp aTimeStamp = new Timestamp(System.currentTimeMillis());
+        Timestamp aTimeStamp2 = new Timestamp(System.currentTimeMillis());
+        byte[] aBlobData = {(byte) 8, (byte) 7, (byte) 6, (byte) 5, (byte) 4, (byte) 3, (byte) 2, (byte) 1};
+        Bytea aBlob = new Bytea(aBlobData);
+        Reimbursement aReimbursement = new Reimbursement("reimb_id", 12345.53,
+                                                         aTimeStamp, aTimeStamp2,
+                                                         "description", aBlob,
+                                                         "payment_id", "author_id",
+                                                         "resolver_id", aType, aStatus);
+        ReimbursementDAO dataObject = new ReimbursementDAO();
+        dataObject.save(aReimbursement);
     }
 
   /*  @Test

@@ -1,5 +1,7 @@
 package com.revature.foundations.models;
 
+import com.revature.foundations.util.Bytea;
+
 import java.util.Objects;
 import java.sql.Blob;
 import java.sql.Timestamp;
@@ -10,11 +12,11 @@ import java.sql.Timestamp;
 public class Reimbursement {
 
 	private String reimb_id;
-	private float amount;
+	private double amount;
 	private Timestamp submitted;
 	private Timestamp Resolved;
 	private String description;
-	private Blob receipt;
+	private Bytea receipt;
 	private String payment_id;
 	private String author_id;
 	private String resolver_id;
@@ -23,14 +25,16 @@ public class Reimbursement {
 
 	public Reimbursement(){super();}
 
-	public Reimbursement(String reimb_id, float amount,
+	public Reimbursement(String reimb_id, double amount,
 						 Timestamp submitted,
 						 Timestamp resolved,
 						 String description,
-						 Blob receipt,
+						 Bytea receipt,
 						 String payment_id,
 						 String author_id,
-						 String resolver_id) {
+						 String resolver_id,
+						 ReimbursementType type,
+						 ReimbursementStatus status) {
 		this.reimb_id = reimb_id;
 		this.amount = amount;
 		this.submitted = submitted;
@@ -40,6 +44,8 @@ public class Reimbursement {
 		this.payment_id = payment_id;
 		this.author_id = author_id;
 		this.resolver_id = resolver_id;
+		this.type = type;
+		this.status=status;
 	}
 
 	public String getReimb_id() {
@@ -50,11 +56,11 @@ public class Reimbursement {
 		this.reimb_id = reimb_id;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(float amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
@@ -82,11 +88,11 @@ public class Reimbursement {
 		this.description = description;
 	}
 
-	public Blob getReceipt() {
+	public Bytea getReceipt() {
 		return receipt;
 	}
 
-	public void setReceipt(Blob receipt) {
+	public void setReceipt(Bytea receipt) {
 		this.receipt = receipt;
 	}
 
@@ -135,7 +141,7 @@ public class Reimbursement {
 		if (this == o) return true;
 		if (!(o instanceof Reimbursement)) return false;
 		Reimbursement that = (Reimbursement) o;
-		return Float.compare(that.getAmount(), getAmount()) == 0 && Objects.equals(getReimb_id(), that.getReimb_id()) && Objects.equals(getSubmitted(), that.getSubmitted()) && Objects.equals(getResolved(), that.getResolved()) && Objects.equals(getDescription(), that.getDescription()) && Objects.equals(getReceipt(), that.getReceipt()) && Objects.equals(getPayment_id(), that.getPayment_id()) && Objects.equals(getAuthor_id(), that.getAuthor_id()) && Objects.equals(getResolver_id(), that.getResolver_id()) && Objects.equals(getStatus(), that.getStatus()) && Objects.equals(getType(), that.getType());
+		return Double.compare(that.getAmount(), getAmount()) == 0 && Objects.equals(getReimb_id(), that.getReimb_id()) && Objects.equals(getSubmitted(), that.getSubmitted()) && Objects.equals(getResolved(), that.getResolved()) && Objects.equals(getDescription(), that.getDescription()) && Objects.equals(getReceipt(), that.getReceipt()) && Objects.equals(getPayment_id(), that.getPayment_id()) && Objects.equals(getAuthor_id(), that.getAuthor_id()) && Objects.equals(getResolver_id(), that.getResolver_id()) && Objects.equals(getStatus(), that.getStatus()) && Objects.equals(getType(), that.getType());
 	}
 
 	@Override
