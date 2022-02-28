@@ -124,7 +124,16 @@ public class AppTest
         assertEquals(dataReimbursementObject.getAll(), reimbursementList);
         assertEquals(dataReimbursementObject.getById("reimb_id"), aReimbursement);
 
+        Timestamp aTimeStamp5 = new Timestamp(System.currentTimeMillis());
+        aReimbursement.setResolved(aTimeStamp5);
+        dataReimbursementObject.update(aReimbursement);
+        assertEquals(dataReimbursementObject.getById(aReimbursement.getReimb_id()), aReimbursement);
+
+        aReimbursement.setResolved(aTimeStamp2);
+        assertNotEquals(dataReimbursementObject.getById(aReimbursement.getReimb_id()), aReimbursement);
+
         dataReimbursementObject.deleteById(aReimbursement);
+        dataReimbursementObject.deleteById(aReimbursement2);
         dataUserObject.deleteById(aUser);
         dataUserObject.deleteById(aUser2);
     }

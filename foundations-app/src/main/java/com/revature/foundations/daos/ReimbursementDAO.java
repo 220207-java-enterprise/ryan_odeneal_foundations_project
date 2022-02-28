@@ -154,7 +154,36 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
 
     @Override
     public void update(Reimbursement updatedObject) {
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
+            conn.setAutoCommit(false);
+            PreparedStatement pstmt = conn.prepareStatement("UPDATE ers_reimbursements " +
+                    "SET amount = ?, " +
+                    "resolved = ?, " +
+                    "description = ?, " +
+                    "receipt = ?, " +
+                    "payment_id = ? " +
+                    "WHERE reimb_id = ?");
+            pstmt.setDouble(1, updatedObject.getAmount());
+            pstmt.setTimestamp(2, updatedObject.getResolved());
+            pstmt.setString(3, updatedObject.getDescription());
+            pstmt.setBinaryStream(4, updatedObject.getReceipt().getBinaryStream());
+            pstmt.setString(5, updatedObject.getPayment_id());
+            pstmt.setString(6, updatedObject.getReimb_id());
+
+
+            // TODO allow role to be updated as well
+
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted != 1) {
+                throw new ResourcePersistenceException("Failed to update user data within datasource.");
+            }
+
+            conn.commit();
+
+        } catch (SQLException e) {
+            throw new DataSourceException(e);
+        }
     }
 
     @Override
