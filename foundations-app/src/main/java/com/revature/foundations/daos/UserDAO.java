@@ -125,18 +125,31 @@ public class UserDAO implements CrudDAO<AppUser> {
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
             conn.setAutoCommit(false);
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO ers_users VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            pstmt.setString(1, newUser.getUser_id());
-            pstmt.setString(2, newUser.getUsername());
-            pstmt.setString(3, newUser.getEmail());
-            pstmt.setString(4, newUser.getPassword());
-            pstmt.setString(5, newUser.getGiven_name());
-            pstmt.setString(6, newUser.getSurname());
-			pstmt.setBoolean(7, newUser.isIs_active());
-            pstmt.setString(8, newUser.getRole().getId());
+            PreparedStatement pstmt1 = conn.prepareStatement("INSERT INTO ers_user_roles VALUES (?, ?)");
+            pstmt1.setString(1, newUser.getRole().getId());
+            pstmt1.setString(2, newUser.getRole().getRoleName());
 
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted != 1) {
+            int rowsInserted1 = pstmt1.executeUpdate();
+            if (rowsInserted1 != 1) {
+                conn.rollback();
+                throw new ResourcePersistenceException("Failed to persist user role to data source");
+            }
+
+            conn.commit();
+
+            conn.setAutoCommit(false);
+            PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO ers_users VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            pstmt2.setString(1, newUser.getUser_id());
+            pstmt2.setString(2, newUser.getUsername());
+            pstmt2.setString(3, newUser.getEmail());
+            pstmt2.setString(4, newUser.getPassword());
+            pstmt2.setString(5, newUser.getGiven_name());
+            pstmt2.setString(6, newUser.getSurname());
+			pstmt2.setBoolean(7, newUser.isIs_active());
+            pstmt2.setString(8, newUser.getRole().getId());
+
+            int rowsInserted2 = pstmt2.executeUpdate();
+            if (rowsInserted2 != 1) {
                 conn.rollback();
                 throw new ResourcePersistenceException("Failed to persist user to data source");
             }
@@ -246,10 +259,11 @@ public class UserDAO implements CrudDAO<AppUser> {
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
             conn.setAutoCommit(false);
-            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ers_users WHERE user_id = ?");
+            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ers_user_roles WHERE role_id = ?");
             pstmt.setString(1, id);
 
             int rowsInserted = pstmt.executeUpdate();
+            System.out.println(rowsInserted);
             if (rowsInserted != 1) {
                 conn.rollback();
                 throw new ResourcePersistenceException("Failed to delete user from data source");

@@ -20,7 +20,7 @@ public class AppUser {
         super();
     }
 
-    public AppUser(String user_id, String username, String email, String password, String given_name, String surname, boolean is_active) {
+    public AppUser(String user_id, String username, String email, String password, String given_name, String surname, boolean is_active, UserRole role) {
         this.user_id = user_id;
         this.username = username;
         this.email = email;
@@ -28,6 +28,7 @@ public class AppUser {
         this.given_name = given_name;
         this.surname = surname;
         this.is_active = is_active;
+        this.role = role;
     }
 
     public String getUser_id() {

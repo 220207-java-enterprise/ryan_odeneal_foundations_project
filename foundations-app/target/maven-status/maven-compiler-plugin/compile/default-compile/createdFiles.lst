@@ -1,7 +1,11 @@
-com/revature/foundations/util/ConnectionFactory.class
+com/revature/foundations/daos/CrudDAO.class
 com/revature/foundations/models/UserRole.class
 com/revature/foundations/models/ReimbursementType.class
+com/revature/foundations/util/exceptions/ResourcePersistenceException.class
+com/revature/foundations/App.class
+com/revature/foundations/util/ConnectionFactory.class
+com/revature/foundations/daos/UserDAO.class
 com/revature/foundations/models/Reimbursement.class
 com/revature/foundations/models/ReimbursementStatus.class
 com/revature/foundations/models/AppUser.class
-com/revature/foundations/App.class
+com/revature/foundations/util/exceptions/DataSourceException.class
