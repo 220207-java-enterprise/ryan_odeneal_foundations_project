@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e538b3-60f9-4043-a67c-35db9da5531e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/NewUserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/responses/AppUserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/responses/ResourceCreationResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.testingReimbursementDAO">
+  <component name="RunManager" selected="JUnit.com.revature.foundations.dtos.requests in foundations-app">
     <configuration name="AppTest.deleteAUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="foundations-app" />
       <extension name="coverage">
@@ -67,22 +67,6 @@
       <option name="PACKAGE_NAME" value="com.revature.foundations" />
       <option name="MAIN_CLASS_NAME" value="com.revature.foundations.AppTest" />
       <option name="METHOD_NAME" value="deleteAUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.saveAUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="foundations-app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.revature.foundations.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.revature.foundations" />
-      <option name="MAIN_CLASS_NAME" value="com.revature.foundations.AppTest" />
-      <option name="METHOD_NAME" value="saveAUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,13 +120,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.revature.foundations.dtos.requests in foundations-app" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="foundations-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.revature.foundations.dtos.requests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.revature.foundations.dtos.requests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.revature.foundations.dtos.requests in foundations-app" />
         <item itemvalue="JUnit.AppTest.testingReimbursementDAO" />
         <item itemvalue="JUnit.AppTest.testingUserDao" />
         <item itemvalue="JUnit.AppTest.saveAUserFindAUserDeleteAUser" />
         <item itemvalue="JUnit.AppTest.deleteAUser" />
-        <item itemvalue="JUnit.AppTest.saveAUser" />
       </list>
     </recent_temporary>
   </component>
@@ -167,5 +165,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/foundations_app$com_revature_foundations_dtos_requests_in_foundations_app.ic" NAME="com.revature.foundations.dtos.requests in foundations-app Coverage Results" MODIFIED="1646085064188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.revature.foundations.dtos.requests.*</FILTER>
+    </SUITE>
   </component>
 </project>
