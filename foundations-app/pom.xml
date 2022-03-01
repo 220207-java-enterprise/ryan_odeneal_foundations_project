@@ -113,9 +113,8 @@
                   <configuration>
                       <url>http://localhost:8080/manager/text</url>
                       <server>LocalTomcat</server>
-                      <path>/test-app</path>
-					  <username>maven-tomcat</username>
-					  <password>revature</password>
+                      <path>/foundations</path>
+					  <update>true</update>
                   </configuration>
               </plugin>
 

@@ -1,4 +1,6 @@
+com/revature/foundations/util/Bytea.class
 com/revature/foundations/daos/CrudDAO.class
+com/revature/foundations/dtos/requests/NewUserRequest.class
 com/revature/foundations/util/exceptions/ResourcePersistenceException.class
 com/revature/foundations/services/TokenService.class
 com/revature/foundations/util/exceptions/AuthenticationException.class
@@ -15,6 +17,8 @@ com/revature/foundations/models/ReimbursementType.class
 com/revature/foundations/util/exceptions/InvalidRequestException.class
 com/revature/foundations/servlets/UserServlet.class
 com/revature/foundations/servlets/TestServlet.class
+com/revature/foundations/daos/ReimbursementDAO.class
+com/revature/foundations/dtos/requests/LoginRequest.class
 com/revature/foundations/dtos/responses/Principal.class
 com/revature/foundations/util/ConnectionFactory.class
 com/revature/foundations/servlets/AuthServlet.class
