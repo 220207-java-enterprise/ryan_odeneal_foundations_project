@@ -74,10 +74,10 @@ public class NewUserRequest {
         this.role = role;
     }
 
-    String user_id = UUID.randomUUID().toString();
-    String role_id = UUID.randomUUID().toString();
-    UserRole aRole = new UserRole(role_id, role);
     public AppUser extractUser() {
+        String user_id = UUID.randomUUID().toString();
+        String role_id = UUID.randomUUID().toString();
+        UserRole aRole = new UserRole(role_id, this.role);
         return new AppUser(user_id, username, email, password, given_name, surname, false, aRole);
     }
 

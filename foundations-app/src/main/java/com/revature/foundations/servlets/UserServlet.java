@@ -89,7 +89,9 @@ public class UserServlet extends HttpServlet {
 
         } catch (InvalidRequestException | DatabindException e) {
             resp.setStatus(400); // BAD REQUEST
+            e.printStackTrace();
         } catch (ResourceConflictException e) {
+            e.printStackTrace();
             resp.setStatus(409); // CONFLICT
         } catch (Exception e) {
             e.printStackTrace(); // include for debugging purposes; ideally log it to a file

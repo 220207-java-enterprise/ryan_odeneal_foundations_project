@@ -6,13 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="37e538b3-60f9-4043-a67c-35db9da5531e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/NewUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/NewUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/servlets/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/servlets/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/foundations/dtos/requests/NewUserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/foundations/dtos/requests/NewUserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/foundations/servlets/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/foundations/servlets/UserServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/dtos/requests/NewUserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/dtos/requests/NewUserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/servlets/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/servlets/UserServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" afterDir="false" />
     </list>
@@ -60,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../quizzard" />
   </component>
   <component name="RunManager" selected="JUnit.com.revature.foundations.dtos.requests in foundations-app">
     <configuration name="AppTest.deleteAUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
