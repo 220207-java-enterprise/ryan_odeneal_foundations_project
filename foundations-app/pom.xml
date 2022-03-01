@@ -7,6 +7,7 @@
   <groupId>com.revature.foundations</groupId>
   <artifactId>foundations-app</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
   <name>foundations-app</name>
   <!-- FIXME change it to the project's website -->
@@ -81,7 +82,6 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
 <configuration>
-        <runOrder>alphabetical</runOrder>
     </configuration>
         </plugin>
         <plugin>
@@ -105,6 +105,20 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
 		</plugin>
+
+<plugin>
+                  <groupId>org.apache.tomcat.maven</groupId>
+                  <artifactId>tomcat7-maven-plugin</artifactId>
+                  <version>2.2</version>
+                  <configuration>
+                      <url>http://localhost:8080/manager/text</url>
+                      <server>LocalTomcat</server>
+                      <path>/test-app</path>
+					  <username>maven-tomcat</username>
+					  <password>revature</password>
+                  </configuration>
+              </plugin>
+
       </plugins>
     </pluginManagement>
       <plugins>
