@@ -2,6 +2,7 @@ package com.revature.foundations.dtos.responses;
 
 
 import com.revature.foundations.models.AppUser;
+import com.revature.foundations.models.Reimbursement;
 
 public class Principal {
 
@@ -18,6 +19,7 @@ public class Principal {
         this.username = user.getUsername();
         this.role = user.getRole().getRoleName();
     }
+
 
     public String getId() {
         return id;
