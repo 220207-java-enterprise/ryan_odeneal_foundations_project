@@ -111,8 +111,7 @@ public class UserServlet extends HttpServlet {
         try {
 
             Principal potentiallyAdmin = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
-
-            if(potentiallyAdmin.getRole() != "Admin"){
+            if(!(potentiallyAdmin.getRole().equals("Admin"))){
                 throw new InvalidRequestException();
             }
 

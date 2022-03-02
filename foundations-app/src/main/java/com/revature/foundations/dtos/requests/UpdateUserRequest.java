@@ -97,18 +97,22 @@ public class UpdateUserRequest {
 
 
     public AppUser extractUser() {
-        UserDAO extractedUser = new UserDAO();
-        return extractedUser.getById(this.user_id);
+        UserDAO daoToPullUserForRole_Id = new UserDAO();
+        AppUser pulledUser = daoToPullUserForRole_Id.getById(this.user_id);
+        UserRole aRole = new UserRole(pulledUser.getRole().getId(), role);
+        return new AppUser(this.user_id, this.username, this.email, this.password, this.given_name, this.surname, this.is_active, aRole);
     }
 
     @Override
     public String toString() {
-        return "NewUserRequest{" +
-                "username='" + username + '\'' +
+        return "UpdateUserRequest{" +
+                "user_id='" + user_id + '\'' +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", given_name='" + given_name + '\'' +
                 ", surname='" + surname + '\'' +
+                ", is_active=" + is_active +
                 ", role='" + role + '\'' +
                 '}';
     }

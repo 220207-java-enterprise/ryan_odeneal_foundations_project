@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37e538b3-60f9-4043-a67c-35db9da5531e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/UpdateUserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/dtos/requests/UpdateUserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revature/foundations/servlets/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revature/foundations/servlets/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/revature/foundations/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/revature/foundations/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/revature/foundations/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/foundations/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/revature/foundations/servlets/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/revature/foundations/servlets/UserServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/servlets/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/foundations-app-1.0-SNAPSHOT/WEB-INF/classes/com/revature/foundations/servlets/UserServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.revature.foundations.AppTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.revature.foundations.AppTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/revature/foundations/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/revature/foundations/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
