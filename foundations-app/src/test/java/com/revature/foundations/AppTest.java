@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import com.revature.foundations.daos.ReimbursementDAO;
+import com.revature.foundations.daos.ReimbursementStatusDAO;
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.models.*;
 import com.revature.foundations.util.Bytea;
@@ -80,7 +81,7 @@ public class AppTest
 
     }
 
-    @Test
+ /*   @Test
     public void testingReimbursementDAO() {
         UserRole aRole = new UserRole("test_role_id", "test_role");
         AppUser aUser = new AppUser("author_id", "username", "email", "password", "givenName", "surname", false, aRole);
@@ -149,4 +150,11 @@ public class AppTest
     }
 
 */
+
+    @Test
+    public void updateReimbursementStatus() {
+        ReimbursementStatusDAO aReimbursementStatusDAO = new ReimbursementStatusDAO();
+        ReimbursementStatus aReimbursementStatus = new ReimbursementStatus("376a99f8-7047-4a7a-8c0b-95d3fabae3be", "Pending");
+        aReimbursementStatusDAO.update(aReimbursementStatus);
+    }
 }
