@@ -3,6 +3,7 @@ package com.revature.foundations.services;
 
 import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.NewUserRequest;
+import com.revature.foundations.dtos.requests.UpdateUserRequest;
 import com.revature.foundations.dtos.responses.AppUserResponse;
 import com.revature.foundations.models.AppUser;
 import com.revature.foundations.daos.UserDAO;
@@ -92,6 +93,13 @@ public class UserService {
 
     }
 
+    //redundant?
+    public AppUser updatedUser(UpdateUserRequest updateRequest) {
+        AppUser updatedUser = updateRequest.extractUser();
+        userDAO.update(updatedUser);
+        return updatedUser;
+    }
+
     private boolean isUserValid(AppUser appUser) {
 
         // First name and last name are not just empty strings or filled with whitespace
@@ -107,6 +115,14 @@ public class UserService {
         // Passwords require a minimum eight characters, at least one uppercase letter, one lowercase
         // letter, one number and one special character
         if (!isPasswordValid(appUser.getPassword())) {
+            return false;
+        }
+
+        ArrayList<String> validRoles = new ArrayList<String>();
+        validRoles.add("Finance Manager");
+        validRoles.add("Admin");
+        validRoles.add("Employee");
+        if(!(validRoles.contains(appUser.getRole().getRoleName()))) {
             return false;
         }
 

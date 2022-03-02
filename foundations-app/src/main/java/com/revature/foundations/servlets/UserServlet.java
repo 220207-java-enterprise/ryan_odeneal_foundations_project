@@ -2,7 +2,10 @@ package com.revature.foundations.servlets;
 
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.foundations.daos.UserDAO;
+import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.NewUserRequest;
+import com.revature.foundations.dtos.requests.UpdateUserRequest;
 import com.revature.foundations.dtos.responses.AppUserResponse;
 import com.revature.foundations.dtos.responses.Principal;
 import com.revature.foundations.dtos.responses.ResourceCreationResponse;
@@ -85,6 +88,40 @@ public class UserServlet extends HttpServlet {
             resp.setStatus(201); // CREATED
             resp.setContentType("application/json");
             String payload = mapper.writeValueAsString(new ResourceCreationResponse(newUser.getUser_id()));
+            respWriter.write(payload);
+
+        } catch (InvalidRequestException | DatabindException e) {
+            resp.setStatus(400); // BAD REQUEST
+            e.printStackTrace();
+        } catch (ResourceConflictException e) {
+            e.printStackTrace();
+            resp.setStatus(409); // CONFLICT
+        } catch (Exception e) {
+            e.printStackTrace(); // include for debugging purposes; ideally log it to a file
+            resp.setStatus(500);
+        }
+
+    }
+
+    //update user endpoint. Something only an admin can do.
+    @Override
+    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter respWriter = resp.getWriter();
+
+        try {
+
+            Principal potentiallyAdmin = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
+
+            if(potentiallyAdmin.getRole() != "Admin"){
+                throw new InvalidRequestException();
+            }
+
+            UpdateUserRequest anUpdateUserRequest = mapper.readValue(req.getInputStream(), UpdateUserRequest.class);
+            AppUser updatedUser = userService.updatedUser(anUpdateUserRequest);
+
+            resp.setStatus(201); // Succesful
+            resp.setContentType("application/json");
+            String payload = mapper.writeValueAsString(new ResourceCreationResponse(updatedUser.getUser_id()));
             respWriter.write(payload);
 
         } catch (InvalidRequestException | DatabindException e) {
