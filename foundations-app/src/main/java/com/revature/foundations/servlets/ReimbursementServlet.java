@@ -5,13 +5,16 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.ReimbursementSubmissionRequest;
+import com.revature.foundations.dtos.requests.UpdateUserRequest;
 import com.revature.foundations.dtos.responses.Principal;
+import com.revature.foundations.dtos.responses.ResourceCreationResponse;
 import com.revature.foundations.models.AppUser;
 import com.revature.foundations.services.ReimbursementService;
 import com.revature.foundations.services.TokenService;
 import com.revature.foundations.services.UserService;
 import com.revature.foundations.util.exceptions.AuthenticationException;
 import com.revature.foundations.util.exceptions.InvalidRequestException;
+import com.revature.foundations.util.exceptions.ResourceConflictException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -67,4 +70,5 @@ public class ReimbursementServlet extends HttpServlet {
         }
 
     }
+
 }

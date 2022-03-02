@@ -40,7 +40,7 @@ public class AppTest
 
     //this will later be split into proper unit tests with mocks. For now I just want to see it work, lol.
     //REQUIRES DATABASE TO BE RUNNING.
-
+/*
     @Test
     public void testingUserDao() {
         UserRole aRole = new UserRole("test_role_id", "test_role");
@@ -81,7 +81,7 @@ public class AppTest
 
     }
 
- /*   @Test
+    @Test
     public void testingReimbursementDAO() {
         UserRole aRole = new UserRole("test_role_id", "test_role");
         AppUser aUser = new AppUser("author_id", "username", "email", "password", "givenName", "surname", false, aRole);
