@@ -1,5 +1,7 @@
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/servlets/UserServlet.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/util/exceptions/ResourcePersistenceException.java
+/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/dtos/requests/ReimbursementSubmissionRequest.java
+/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/services/ReimbursementService.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/util/JwtConfig.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/dtos/responses/ResourceCreationResponse.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/dtos/requests/LoginRequest.java
@@ -22,6 +24,7 @@
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/servlets/AuthServlet.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/daos/CrudDAO.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/services/UserService.java
+/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/servlets/ReimbursementServlet.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/dtos/responses/Principal.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/models/ReimbursementStatus.java
 /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/src/main/java/com/revature/foundations/util/ContextLoaderListener.java

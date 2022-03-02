@@ -6,6 +6,8 @@ import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 
 public class Bytea implements Blob {
 
@@ -13,6 +15,16 @@ public class Bytea implements Blob {
 
     public Bytea(byte[] blob) {
         this.blob = blob;
+    }
+
+    public Bytea(String blob) {
+        try {
+            byte[] decodedString = Base64.getDecoder().decode(new String(blob).getBytes("UTF-8"));
+            this.blob = decodedString;
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public byte[] getBlob() {

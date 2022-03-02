@@ -140,7 +140,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
                 aReimbursement.setReceipt(new Bytea(rs.getBytes("receipt")));
                 aReimbursement.setPayment_id(rs.getString("payment_id"));
                 aReimbursement.setAuthor_id(rs.getString("author_id"));
-                aReimbursement.setResolver_id(rs.getString("resolver_id"));
+                aReimbursement.setResolver_id(String.valueOf(rs.getString("resolver_id")));
                 aReimbursement.setStatus(new ReimbursementStatus(rs.getString("status_id"), rs.getString("status")));
                 aReimbursement.setType(new ReimbursementType(rs.getString("type_id"), rs.getString("type")));
                 reimbursements.add(aReimbursement);

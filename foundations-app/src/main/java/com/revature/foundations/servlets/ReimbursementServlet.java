@@ -1,6 +1,7 @@
 package com.revature.foundations.servlets;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.ReimbursementSubmissionRequest;
@@ -41,6 +42,7 @@ public class ReimbursementServlet extends HttpServlet {
 
 
             Principal potentiallyEmployee = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
+            System.out.println(potentiallyEmployee);
             if (!(potentiallyEmployee.getRole().equals("Employee"))) {
                 throw new InvalidRequestException("Only Employee's can submit Reimbursements");
             }
@@ -48,13 +50,14 @@ public class ReimbursementServlet extends HttpServlet {
             ReimbursementSubmissionRequest aReimbursementSubmissionRequest = mapper.readValue(req.getInputStream(), ReimbursementSubmissionRequest.class);
 
             reimbursementService.logNewReimbursement(aReimbursementSubmissionRequest);
-
+            mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
             String payload = mapper.writeValueAsString(aReimbursementSubmissionRequest);
             resp.setContentType("application/json");
             writer.write(payload);
 
 
         } catch (InvalidRequestException | DatabindException e) {
+            e.printStackTrace();
             resp.setStatus(400);
         } catch (AuthenticationException e) {
             resp.setStatus(401); // UNAUTHORIZED (no user found with provided credentials)

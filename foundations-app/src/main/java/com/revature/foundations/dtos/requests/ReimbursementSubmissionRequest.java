@@ -71,7 +71,7 @@ public class ReimbursementSubmissionRequest {
         ReimbursementStatus status = new ReimbursementStatus(status_id, "pending");
         ReimbursementType type = new ReimbursementType(type_id, this.type);
         return new Reimbursement(reimb_id, this.amount, new Timestamp(System.currentTimeMillis()),
-                                new Timestamp(0), this.description, this.receipt, "null", this.author_id, "null", type, status);
+                                new Timestamp(0), this.description, this.receipt, null, this.author_id, null, type, status);
     }
 
     @Override
