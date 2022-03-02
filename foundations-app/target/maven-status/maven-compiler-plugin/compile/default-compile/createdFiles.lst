@@ -1,5 +1,7 @@
 com/revature/foundations/util/Bytea.class
+com/revature/foundations/servlets/ReimbursementServlet.class
 com/revature/foundations/daos/CrudDAO.class
+com/revature/foundations/dtos/requests/ReimbursementSubmissionRequest.class
 com/revature/foundations/dtos/requests/NewUserRequest.class
 com/revature/foundations/util/exceptions/ResourcePersistenceException.class
 com/revature/foundations/services/TokenService.class
@@ -22,6 +24,7 @@ com/revature/foundations/dtos/requests/LoginRequest.class
 com/revature/foundations/dtos/responses/Principal.class
 com/revature/foundations/util/ConnectionFactory.class
 com/revature/foundations/servlets/AuthServlet.class
+com/revature/foundations/services/ReimbursementService.class
 com/revature/foundations/models/Reimbursement.class
 com/revature/foundations/models/ReimbursementStatus.class
 com/revature/foundations/models/AppUser.class

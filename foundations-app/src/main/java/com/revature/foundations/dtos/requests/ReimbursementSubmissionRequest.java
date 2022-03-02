@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public class ReimbursementSubmissionRequest {
     private double amount;
-    private Timestamp submitted;
     private String description;
     private Bytea receipt;
     private String author_id;
@@ -17,9 +16,8 @@ public class ReimbursementSubmissionRequest {
 
     public ReimbursementSubmissionRequest(){super();}
 
-    public ReimbursementSubmissionRequest(double amount, Timestamp submitted, String description, Bytea receipt, String author_id, String type) {
+    public ReimbursementSubmissionRequest(double amount, String description, Bytea receipt, String author_id, String type) {
         this.amount = amount;
-        this.submitted = submitted;
         this.description = description;
         this.receipt = receipt;
         this.author_id = author_id;
@@ -32,14 +30,6 @@ public class ReimbursementSubmissionRequest {
 
     public void setAmount(double amount) {
         this.amount = amount;
-    }
-
-    public Timestamp getSubmitted() {
-        return submitted;
-    }
-
-    public void setSubmitted(Timestamp submitted) {
-        this.submitted = submitted;
     }
 
     public String getDescription() {
@@ -88,7 +78,6 @@ public class ReimbursementSubmissionRequest {
     public String toString() {
         return "ReimbursementSubmissionRequest{" +
                 "amount=" + amount +
-                ", submitted=" + submitted +
                 ", description='" + description + '\'' +
                 ", receipt=" + receipt +
                 ", author_id='" + author_id + '\'' +

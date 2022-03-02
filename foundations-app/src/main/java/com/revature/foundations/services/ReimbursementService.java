@@ -23,6 +23,11 @@ import java.util.stream.Collectors;
 public class ReimbursementService {
     private ReimbursementDAO aReimbursementDAO;
 
+    // Constructor injection
+    public ReimbursementService(ReimbursementDAO reimbursementDAO) {
+        this.aReimbursementDAO = reimbursementDAO;
+    }
+
     public Reimbursement logNewReimbursement(ReimbursementSubmissionRequest aReimbursementSubmissionRequest) throws IOException {
 
 

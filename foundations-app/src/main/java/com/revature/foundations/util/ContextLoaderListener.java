@@ -1,10 +1,13 @@
 package com.revature.foundations.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.foundations.daos.ReimbursementDAO;
 import com.revature.foundations.daos.UserDAO;
+import com.revature.foundations.services.ReimbursementService;
 import com.revature.foundations.services.TokenService;
 import com.revature.foundations.services.UserService;
 import com.revature.foundations.servlets.AuthServlet;
+import com.revature.foundations.servlets.ReimbursementServlet;
 import com.revature.foundations.servlets.UserServlet;
 
 import javax.servlet.ServletContext;
@@ -24,12 +27,18 @@ public class ContextLoaderListener implements ServletContextListener {
         UserDAO userDAO = new UserDAO();
         UserService userService = new UserService(userDAO);
         UserServlet userServlet = new UserServlet(tokenService, userService, mapper);
+
         AuthServlet authServlet = new AuthServlet(tokenService, userService, mapper);
+
+        ReimbursementDAO aReimbursementDAO = new ReimbursementDAO();
+        ReimbursementService aReimbursementService = new ReimbursementService(aReimbursementDAO);
+        ReimbursementServlet reimbursementServlet = new ReimbursementServlet(tokenService, aReimbursementService, mapper);
 
         // Programmatic Servlet Registration
         ServletContext context = sce.getServletContext();
         context.addServlet("UserServlet", userServlet).addMapping("/users/*");
         context.addServlet("AuthServlet", authServlet).addMapping("/auth");
+        context.addServlet("ReimbursementServlet", authServlet).addMapping("/reimbursements/*");
 
     }
 
