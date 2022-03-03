@@ -123,6 +123,38 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
         return aReimbursement;
     }
 
+
+    public Reimbursement getByAuthorId(String id) {
+        Reimbursement aReimbursement = null;
+
+        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+
+            PreparedStatement pstmt = conn.prepareStatement(rootSelect + "WHERE author_id = ?");
+            pstmt.setString(1, id);
+
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                aReimbursement = new Reimbursement();
+                aReimbursement.setReimb_id(rs.getString("reimb_id"));
+                aReimbursement.setAmount(rs.getDouble("amount"));
+                aReimbursement.setSubmitted(rs.getTimestamp("submitted"));
+                aReimbursement.setResolved(rs.getTimestamp("resolved"));
+                aReimbursement.setDescription(rs.getString("description"));
+                aReimbursement.setReceipt(new Bytea(rs.getBytes("receipt")));
+                aReimbursement.setPayment_id(rs.getString("payment_id"));
+                aReimbursement.setAuthor_id(rs.getString("author_id"));
+                aReimbursement.setResolver_id(rs.getString("resolver_id"));
+                aReimbursement.setStatus(new ReimbursementStatus(rs.getString("status_id"), rs.getString("status")));
+                aReimbursement.setType(new ReimbursementType(rs.getString("type_id"), rs.getString("type")));
+            }
+
+        } catch (SQLException e) {
+            throw new DataSourceException(e);
+        }
+
+        return aReimbursement;
+    }
+
     @Override
     public List<Reimbursement> getAll() {
         List<Reimbursement> reimbursements = new ArrayList<>();
@@ -163,6 +195,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
                     "description = ?, " +
                     "receipt = ?, " +
                     "payment_id = ?, " +
+                    "resolver_id = ?, " +
                     "status_id = ? " +
                     "WHERE reimb_id = ?");
             pstmt.setDouble(1, updatedObject.getAmount());
@@ -170,8 +203,9 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
             pstmt.setString(3, updatedObject.getDescription());
             pstmt.setBinaryStream(4, updatedObject.getReceipt().getBinaryStream());
             pstmt.setString(5, updatedObject.getPayment_id());
-            pstmt.setString(6, updatedObject.getStatus().getStatus_id());
-            pstmt.setString(7, updatedObject.getReimb_id());
+            pstmt.setString(6, updatedObject.getResolver_id());
+            pstmt.setString(7, updatedObject.getStatus().getStatus_id());
+            pstmt.setString(8, updatedObject.getReimb_id());
 
 
             // TODO allow role to be updated as well

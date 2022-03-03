@@ -28,4 +28,5 @@ com/revature/foundations/services/ReimbursementService.class
 com/revature/foundations/models/Reimbursement.class
 com/revature/foundations/models/ReimbursementStatus.class
 com/revature/foundations/models/AppUser.class
+com/revature/foundations/dtos/requests/UpdateReimbursementRequest.class
 com/revature/foundations/util/ContextLoaderListener.class

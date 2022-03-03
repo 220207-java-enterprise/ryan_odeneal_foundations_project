@@ -5,10 +5,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.ReimbursementSubmissionRequest;
+import com.revature.foundations.dtos.requests.UpdateReimbursementRequest;
 import com.revature.foundations.dtos.requests.UpdateUserRequest;
 import com.revature.foundations.dtos.responses.Principal;
 import com.revature.foundations.dtos.responses.ResourceCreationResponse;
 import com.revature.foundations.models.AppUser;
+import com.revature.foundations.models.Reimbursement;
+import com.revature.foundations.models.ReimbursementStatus;
 import com.revature.foundations.services.ReimbursementService;
 import com.revature.foundations.services.TokenService;
 import com.revature.foundations.services.UserService;
@@ -65,6 +68,43 @@ public class ReimbursementServlet extends HttpServlet {
             resp.setStatus(401); // UNAUTHORIZED (no user found with provided credentials)
         } catch (Exception e) {
             e.printStackTrace();
+            resp.setStatus(500);
+        }
+
+    }
+
+
+    //update user endpoint. Something only an admin can do.
+    @Override
+    public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter respWriter = resp.getWriter();
+
+        try {
+
+            Principal potentiallyAdmin = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
+            if(!(potentiallyAdmin.getRole().equals("FINANCE MANAGER"))){
+                throw new InvalidRequestException("Bad Role");
+            }
+
+            UpdateReimbursementRequest anUpdateReimbursementRequest = mapper.readValue(req.getInputStream(), UpdateReimbursementRequest.class);
+            System.out.println(anUpdateReimbursementRequest);
+            Reimbursement updatedReimbursement = reimbursementService.updateReimbursementStatus(anUpdateReimbursementRequest);
+
+            System.out.println(updatedReimbursement);
+
+            resp.setStatus(201); // Succesful
+            resp.setContentType("application/json");
+            String payload = mapper.writeValueAsString(new ResourceCreationResponse(updatedReimbursement.getResolver_id()));
+            respWriter.write(payload);
+
+        } catch (InvalidRequestException | DatabindException e) {
+            resp.setStatus(400); // BAD REQUEST
+            e.printStackTrace();
+        } catch (ResourceConflictException e) {
+            e.printStackTrace();
+            resp.setStatus(409); // CONFLICT
+        } catch (Exception e) {
+            e.printStackTrace(); // include for debugging purposes; ideally log it to a file
             resp.setStatus(500);
         }
 
