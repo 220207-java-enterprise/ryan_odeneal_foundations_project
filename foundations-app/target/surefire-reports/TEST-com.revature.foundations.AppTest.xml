@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.foundations.AppTest" time="0.283" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.revature.foundations.AppTest" time="0.282" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -17,7 +17,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/home/ryan/jdk1.8.0_321/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter2916727629695253022.jar /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire 2022-03-03T11-07-27_096-jvmRun1 surefire7726856657896428402tmp surefire_02242169608000624741tmp"/>
+    <property name="sun.java.command" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter6506937492648307311.jar /home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire 2022-03-03T13-16-07_156-jvmRun1 surefire531423185761263768tmp surefire_0553976601465184724tmp"/>
     <property name="surefire.test.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/test-classes:/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/classes:/home/ryan/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/home/ryan/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/ryan/.m2/repository/org/postgresql/postgresql/42.3.3/postgresql-42.3.3.jar:/home/ryan/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/home/ryan/.m2/repository/io/jsonwebtoken/jjwt/0.9.1/jjwt-0.9.1.jar:/home/ryan/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/home/ryan/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.1/jackson-core-2.13.1.jar:/home/ryan/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.1/jackson-databind-2.13.1.jar:/home/ryan/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.1/jackson-annotations-2.13.1.jar:/home/ryan/.m2/repository/org/mockito/mockito-core/4.3.1/mockito-core-4.3.1.jar:/home/ryan/.m2/repository/net/bytebuddy/byte-buddy/1.12.7/byte-buddy-1.12.7.jar:/home/ryan/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.7/byte-buddy-agent-1.12.7.jar:/home/ryan/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/ryan"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter2916727629695253022.jar"/>
+    <property name="surefire.real.class.path" value="/home/ryan/revature/ryan_odeneal_foundations_project/foundations-app/target/surefire/surefirebooter6506937492648307311.jar"/>
     <property name="sun.boot.class.path" value="/home/ryan/jdk1.8.0_321/jre/lib/resources.jar:/home/ryan/jdk1.8.0_321/jre/lib/rt.jar:/home/ryan/jdk1.8.0_321/jre/lib/sunrsasign.jar:/home/ryan/jdk1.8.0_321/jre/lib/jsse.jar:/home/ryan/jdk1.8.0_321/jre/lib/jce.jar:/home/ryan/jdk1.8.0_321/jre/lib/charsets.jar:/home/ryan/jdk1.8.0_321/jre/lib/jfr.jar:/home/ryan/jdk1.8.0_321/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_321-b07"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="grabbingAConnection" classname="com.revature.foundations.AppTest" time="0.251"/>
+  <testcase name="grabbingAConnection" classname="com.revature.foundations.AppTest" time="0.246"/>
 </testsuite>

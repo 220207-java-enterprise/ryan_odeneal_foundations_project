@@ -59,6 +59,7 @@ public class AuthServlet extends HttpServlet {
         } catch (InvalidRequestException | DatabindException e) {
             resp.setStatus(400);
         } catch (AuthenticationException e) {
+            e.printStackTrace();
             resp.setStatus(401); // UNAUTHORIZED (no user found with provided credentials)
         } catch (Exception e) {
             e.printStackTrace();

@@ -89,6 +89,10 @@ public class UserService {
             throw new AuthenticationException();
         }
 
+        if(authUser.isIs_active() == false) {
+            throw new AuthenticationException("This user is not active");
+        }
+
         return authUser;
 
     }
