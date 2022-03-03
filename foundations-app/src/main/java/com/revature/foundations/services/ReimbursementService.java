@@ -79,4 +79,21 @@ public class ReimbursementService {
         return aReimbursementDAO.getByAuthorId(anUpdateReimbursementRequest.getAuthor_id());
     }
 
+    public List<Reimbursement> getAllReimbursements() {
+
+        // Pre-Java 8 mapping logic (without Streams)
+//        List<AppUser> users = userDAO.getAll();
+//        List<AppUserResponse> userResponses = new ArrayList<>();
+//        for (AppUser user : users) {
+//            userResponses.add(new AppUserResponse(user));
+//        }
+//        return userResponses;
+
+        // Java 8+ mapping logic (with Streams)
+        return aReimbursementDAO.getAll()
+                .stream()
+              //  .map(Reimbursement::new) // intermediate operation
+                .collect(Collectors.toList()); // terminal operation
+    }
+
 }

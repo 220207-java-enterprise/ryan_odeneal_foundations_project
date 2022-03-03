@@ -7,6 +7,7 @@ import com.revature.foundations.dtos.requests.LoginRequest;
 import com.revature.foundations.dtos.requests.ReimbursementSubmissionRequest;
 import com.revature.foundations.dtos.requests.UpdateReimbursementRequest;
 import com.revature.foundations.dtos.requests.UpdateUserRequest;
+import com.revature.foundations.dtos.responses.AppUserResponse;
 import com.revature.foundations.dtos.responses.Principal;
 import com.revature.foundations.dtos.responses.ResourceCreationResponse;
 import com.revature.foundations.models.AppUser;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 public class ReimbursementServlet extends HttpServlet {
 
@@ -107,6 +109,45 @@ public class ReimbursementServlet extends HttpServlet {
             e.printStackTrace(); // include for debugging purposes; ideally log it to a file
             resp.setStatus(500);
         }
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+       // String[] reqFrags = req.getRequestURI().split("/");
+       // if (reqFrags.length == 4 && reqFrags[3].equals("availability")) {
+       //     checkAvailability(req, resp);
+       //     return; // necessary, otherwise we end up doing more work than was requested
+        //}
+
+        // TODO implement some security logic here to protect sensitive operations
+
+        // get users (all, by id, by w/e)
+//        HttpSession session = req.getSession(false);
+//        if (session == null) {
+//            resp.setStatus(401);
+//            return;
+//        }
+//        Principal requester = (Principal) session.getAttribute("authUser");
+
+        Principal requester = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
+
+        if (requester == null) {
+            resp.setStatus(401);
+            return;
+        }
+        if (!requester.getRole().equals("FINANCE MANAGER")) {
+            resp.setStatus(403); // FORBIDDEN
+            return;
+        }
+
+        List<Reimbursement> users = reimbursementService.getAllReimbursements();
+        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        String payload = mapper.writeValueAsString(users);
+        resp.setContentType("application/json");
+        resp.getWriter().write(payload);
+
 
     }
 
