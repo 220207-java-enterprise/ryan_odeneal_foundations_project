@@ -111,8 +111,8 @@ public class UserServlet extends HttpServlet {
         try {
 
             Principal potentiallyAdmin = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
-            if(!(potentiallyAdmin.getRole().equals("Admin"))){
-                throw new InvalidRequestException();
+            if(!(potentiallyAdmin.getRole().equals("ADMIN"))){
+                throw new InvalidRequestException("Bad Role");
             }
 
             UpdateUserRequest anUpdateUserRequest = mapper.readValue(req.getInputStream(), UpdateUserRequest.class);

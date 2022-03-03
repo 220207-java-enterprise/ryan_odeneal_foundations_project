@@ -119,9 +119,9 @@ public class UserService {
         }
 
         ArrayList<String> validRoles = new ArrayList<String>();
-        validRoles.add("Finance Manager");
-        validRoles.add("Admin");
-        validRoles.add("Employee");
+        validRoles.add("FINANCE MANAGER");
+        validRoles.add("ADMIN");
+        validRoles.add("EMPLOYEE");
         if(!(validRoles.contains(appUser.getRole().getRoleName()))) {
             return false;
         }

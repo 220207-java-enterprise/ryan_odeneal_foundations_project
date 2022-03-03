@@ -19,7 +19,7 @@ public class Bytea implements Blob {
 
     public Bytea(String blob) {
         try {
-            byte[] decodedString = Base64.getDecoder().decode(new String(blob).getBytes("UTF-8"));
+            byte[] decodedString = Base64.getDecoder().decode(blob.getBytes("UTF-8"));
             this.blob = decodedString;
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block

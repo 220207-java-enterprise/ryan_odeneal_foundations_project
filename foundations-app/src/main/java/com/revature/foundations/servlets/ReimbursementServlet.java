@@ -45,8 +45,7 @@ public class ReimbursementServlet extends HttpServlet {
 
 
             Principal potentiallyEmployee = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
-            System.out.println(potentiallyEmployee);
-            if (!(potentiallyEmployee.getRole().equals("Employee"))) {
+            if (!(potentiallyEmployee.getRole().equals("EMPLOYEE"))) {
                 throw new InvalidRequestException("Only Employee's can submit Reimbursements");
             }
 

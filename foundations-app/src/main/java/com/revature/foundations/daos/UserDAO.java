@@ -123,7 +123,7 @@ public class UserDAO implements CrudDAO<AppUser> {
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
-            conn.setAutoCommit(false);
+          /*  conn.setAutoCommit(false);
             PreparedStatement pstmt1 = conn.prepareStatement("INSERT INTO ers_user_roles VALUES (?, ?)");
             pstmt1.setString(1, newUser.getRole().getId());
             pstmt1.setString(2, newUser.getRole().getRoleName());
@@ -134,7 +134,7 @@ public class UserDAO implements CrudDAO<AppUser> {
                 throw new ResourcePersistenceException("Failed to persist user role to data source");
             }
 
-            conn.commit();
+            conn.commit(); */
 
             conn.setAutoCommit(false);
             PreparedStatement pstmt2 = conn.prepareStatement("INSERT INTO ers_users VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
@@ -255,7 +255,7 @@ public class UserDAO implements CrudDAO<AppUser> {
 
     @Override
     public void deleteById(AppUser objectToDelete) {
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
+   /*     try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
             conn.setAutoCommit(false);
             PreparedStatement pstmt = conn.prepareStatement("DELETE FROM ers_user_roles WHERE role_id = ?");
@@ -272,7 +272,7 @@ public class UserDAO implements CrudDAO<AppUser> {
 
         } catch (SQLException e) {
             throw new DataSourceException(e);
-        }
+        } */
     }
 }
 

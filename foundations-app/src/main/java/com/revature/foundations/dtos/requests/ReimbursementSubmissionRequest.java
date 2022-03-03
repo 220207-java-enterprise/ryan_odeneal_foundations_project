@@ -66,10 +66,8 @@ public class ReimbursementSubmissionRequest {
 
     public Reimbursement extractReimbursement() {
         String reimb_id = UUID.randomUUID().toString();
-        String status_id = UUID.randomUUID().toString();
-        String type_id = UUID.randomUUID().toString();
-        ReimbursementStatus status = new ReimbursementStatus(status_id, "Pending");
-        ReimbursementType type = new ReimbursementType(type_id, this.type);
+        ReimbursementStatus status = new ReimbursementStatus("PENDING", "PENDING");
+        ReimbursementType type = new ReimbursementType(this.type, this.type);
         return new Reimbursement(reimb_id, this.amount, new Timestamp(System.currentTimeMillis()),
                                 new Timestamp(0), this.description, this.receipt, null, this.author_id, null, type, status);
     }

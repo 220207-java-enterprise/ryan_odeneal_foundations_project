@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import com.revature.foundations.daos.ReimbursementDAO;
-import com.revature.foundations.daos.ReimbursementStatusDAO;
+//import com.revature.foundations.daos.ReimbursementStatusDAO;
 import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.models.*;
 import com.revature.foundations.util.Bytea;
@@ -151,10 +151,10 @@ public class AppTest
 
 */
 
-    @Test
+/*    @Test
     public void updateReimbursementStatus() {
         ReimbursementStatusDAO aReimbursementStatusDAO = new ReimbursementStatusDAO();
         ReimbursementStatus aReimbursementStatus = new ReimbursementStatus("376a99f8-7047-4a7a-8c0b-95d3fabae3be", "Pending");
         aReimbursementStatusDAO.update(aReimbursementStatus);
-    }
+    } */
 }

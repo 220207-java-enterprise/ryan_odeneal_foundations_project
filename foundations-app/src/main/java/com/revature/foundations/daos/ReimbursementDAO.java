@@ -38,7 +38,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
     public void save(Reimbursement newObject) {
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
-            conn.setAutoCommit(false);
+            /*conn.setAutoCommit(false);
             PreparedStatement pstmt1 = conn.prepareStatement("INSERT INTO ers_reimbursement_types VALUES (?, ?)");
             pstmt1.setString(1, newObject.getType().getType_id());
             pstmt1.setString(2, newObject.getType().getType()); //THIS COULD BE A SOURCE OF ERROR. SCOPING WEIRDNESS.
@@ -63,7 +63,7 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
             }
 
             conn.commit();
-
+*/
             conn.setAutoCommit(false);
             PreparedStatement pstmt3 = conn.prepareStatement("INSERT INTO ers_reimbursements VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pstmt3.setString(1, newObject.getReimb_id());
@@ -162,14 +162,16 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
                     "resolved = ?, " +
                     "description = ?, " +
                     "receipt = ?, " +
-                    "payment_id = ? " +
+                    "payment_id = ?, " +
+                    "status_id = ? " +
                     "WHERE reimb_id = ?");
             pstmt.setDouble(1, updatedObject.getAmount());
             pstmt.setTimestamp(2, updatedObject.getResolved());
             pstmt.setString(3, updatedObject.getDescription());
             pstmt.setBinaryStream(4, updatedObject.getReceipt().getBinaryStream());
             pstmt.setString(5, updatedObject.getPayment_id());
-            pstmt.setString(6, updatedObject.getReimb_id());
+            pstmt.setString(6, updatedObject.getStatus().getStatus_id());
+            pstmt.setString(7, updatedObject.getReimb_id());
 
 
             // TODO allow role to be updated as well

@@ -1,7 +1,6 @@
 com/revature/foundations/util/Bytea.class
 com/revature/foundations/servlets/ReimbursementServlet.class
 com/revature/foundations/daos/CrudDAO.class
-com/revature/foundations/daos/ReimbursementStatusDAO.class
 com/revature/foundations/dtos/requests/ReimbursementSubmissionRequest.class
 com/revature/foundations/dtos/requests/NewUserRequest.class
 com/revature/foundations/util/exceptions/ResourcePersistenceException.class
