@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReimbursementServlet extends HttpServlet {
@@ -76,7 +77,7 @@ public class ReimbursementServlet extends HttpServlet {
     }
 
 
-    //update user endpoint. Something only an admin can do.
+    //update reimbursement endpoint. Something only a finance manager can do.
     @Override
     public void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter respWriter = resp.getWriter();
@@ -89,10 +90,10 @@ public class ReimbursementServlet extends HttpServlet {
             }
 
             UpdateReimbursementRequest anUpdateReimbursementRequest = mapper.readValue(req.getInputStream(), UpdateReimbursementRequest.class);
-            System.out.println(anUpdateReimbursementRequest);
+
             Reimbursement updatedReimbursement = reimbursementService.updateReimbursementStatus(anUpdateReimbursementRequest);
 
-            System.out.println(updatedReimbursement);
+
 
             resp.setStatus(201); // Succesful
             resp.setContentType("application/json");
@@ -143,11 +144,55 @@ public class ReimbursementServlet extends HttpServlet {
         }
 
         List<Reimbursement> users = reimbursementService.getAllReimbursements();
-        mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-        String payload = mapper.writeValueAsString(users);
-        resp.setContentType("application/json");
-        resp.getWriter().write(payload);
+        switch (requester.getRole()) {
+            case "FINANCE MANAGER":
+                if(req.getHeader("Status-Filter").equals("PENDING")) {
+                    List<Reimbursement> pending_users = new ArrayList<>();
+                    for(Reimbursement aReimbursement : users) {
+                        System.out.println(aReimbursement);
+                        if(aReimbursement.getStatus().getStatus_id().equals("PENDING")) {
+                            System.out.println(aReimbursement);
+                            pending_users.add(aReimbursement);
+                            mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                            String payload = mapper.writeValueAsString(pending_users);
+                            resp.setContentType("application/json");
+                            resp.getWriter().write(payload);
+                        }
+                    }
+                } else if(req.getHeader("Status-Filter").equals("APPROVED")) {
+                    List<Reimbursement> approved_users = new ArrayList<>();
+                    for(Reimbursement aReimbursement : users) {
+                        System.out.println(aReimbursement);
+                        if (aReimbursement.getStatus().getStatus_id().equals("APPROVED")) {
+                            System.out.println(aReimbursement);
+                            approved_users.add(aReimbursement);
+                            mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                            String payload = mapper.writeValueAsString(approved_users);
+                            resp.setContentType("application/json");
+                            resp.getWriter().write(payload);
+                        }
+                    }
+                }  else if (req.getHeader("Status-Filter").equals("DECLINED")) {
+                            List<Reimbursement> declined_users = new ArrayList<>();
+                            for(Reimbursement aReimbursement : users) {
+                                System.out.println(aReimbursement);
+                                if (aReimbursement.getStatus().getStatus_id().equals("DECLINED")) {
+                                    System.out.println(aReimbursement);
+                                    declined_users.add(aReimbursement);
+                                    mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                                    String payload = mapper.writeValueAsString(declined_users);
+                                    resp.setContentType("application/json");
+                                    resp.getWriter().write(payload);
+                                }
+                            }
+                        } else {
 
+                    mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+                    String payload = mapper.writeValueAsString(users);
+                    resp.setContentType("application/json");
+                    resp.getWriter().write(payload);
+                }
+        }
 
     }
 

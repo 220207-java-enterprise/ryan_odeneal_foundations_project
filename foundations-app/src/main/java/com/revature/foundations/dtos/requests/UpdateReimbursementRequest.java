@@ -11,24 +11,24 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class UpdateReimbursementRequest {
-    private String author_id;
+    private String reimb_id;
     private String resolver_id;
     private String status;
 
     public UpdateReimbursementRequest(){super();}
 
-    public UpdateReimbursementRequest(String author_id, String resolver_id, String status) {
-        this.author_id = author_id;
+    public UpdateReimbursementRequest(String reimb_id, String resolver_id, String status) {
+        this.reimb_id = reimb_id;
         this.resolver_id = resolver_id;
         this.status = status;
     }
 
-    public String getAuthor_id() {
-        return author_id;
+    public String getReimb_id() {
+        return reimb_id;
     }
 
-    public void setAuthor_id(String author_id) {
-        this.author_id = author_id;
+    public void setReimb_id(String reimb_id) {
+        this.reimb_id = reimb_id;
     }
 
     public String getResolver_id() {
@@ -48,24 +48,24 @@ public class UpdateReimbursementRequest {
     }
 
     @Override
+    public String toString() {
+        return "UpdateReimbursementRequest{" +
+                "reimb_id='" + reimb_id + '\'' +
+                ", resolver_id='" + resolver_id + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof UpdateReimbursementRequest)) return false;
         UpdateReimbursementRequest that = (UpdateReimbursementRequest) o;
-        return Objects.equals(getAuthor_id(), that.getAuthor_id()) && Objects.equals(getResolver_id(), that.getResolver_id()) && Objects.equals(getStatus(), that.getStatus());
+        return Objects.equals(getReimb_id(), that.getReimb_id()) && Objects.equals(getResolver_id(), that.getResolver_id()) && Objects.equals(getStatus(), that.getStatus());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAuthor_id(), getResolver_id(), getStatus());
-    }
-
-    @Override
-    public String toString() {
-        return "UpdateReimbursementRequest{" +
-                "author_id='" + author_id + '\'' +
-                ", resolver_id='" + resolver_id + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return Objects.hash(getReimb_id(), getResolver_id(), getStatus());
     }
 }

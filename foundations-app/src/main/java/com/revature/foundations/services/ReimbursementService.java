@@ -57,10 +57,9 @@ public class ReimbursementService {
     }
 
     public Reimbursement updateReimbursementStatus(UpdateReimbursementRequest anUpdateReimbursementRequest) {
-        Reimbursement originalReimbursement = aReimbursementDAO.getByAuthorId(anUpdateReimbursementRequest.getAuthor_id());
+        Reimbursement originalReimbursement = aReimbursementDAO.getByReimbId(anUpdateReimbursementRequest.getReimb_id());
         ReimbursementStatus newReimbursementStatus = new ReimbursementStatus(anUpdateReimbursementRequest.getStatus(), anUpdateReimbursementRequest.getStatus());
-        System.out.println(newReimbursementStatus);
-        System.out.println(originalReimbursement);
+
         //Updating the status
         originalReimbursement.setStatus(newReimbursementStatus);
 
@@ -71,12 +70,12 @@ public class ReimbursementService {
         //adding resolver id
         originalReimbursement.setResolver_id(anUpdateReimbursementRequest.getResolver_id());
 
-        System.out.println(originalReimbursement);
+
 
         //saving reimbursement with new status
         aReimbursementDAO.update(originalReimbursement);
 
-        return aReimbursementDAO.getByAuthorId(anUpdateReimbursementRequest.getAuthor_id());
+        return aReimbursementDAO.getByReimbId(anUpdateReimbursementRequest.getReimb_id());
     }
 
     public List<Reimbursement> getAllReimbursements() {

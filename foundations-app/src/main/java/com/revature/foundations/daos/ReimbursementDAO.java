@@ -124,12 +124,12 @@ public class ReimbursementDAO implements CrudDAO<Reimbursement>{
     }
 
 
-    public Reimbursement getByAuthorId(String id) {
+    public Reimbursement getByReimbId(String id) {
         Reimbursement aReimbursement = null;
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
 
-            PreparedStatement pstmt = conn.prepareStatement(rootSelect + "WHERE author_id = ?");
+            PreparedStatement pstmt = conn.prepareStatement(rootSelect + "WHERE reimb_id = ?");
             pstmt.setString(1, id);
 
             ResultSet rs = pstmt.executeQuery();
