@@ -8,8 +8,29 @@
 		{
 			"name": "Register User",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"anEmployee\",\n    \"email\": \"anotheremployee@awebsite.com\",\n    \"password\": \"p@$$w0rD\",\n    \"given_name\": \"bossMakesADollar\",\n    \"surname\": \"iMakeaDime\",\n    \"role\": \"EMPLOYEE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/foundations/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"foundations",
+						"users"
+					]
+				}
 			},
 			"response": []
 		},
@@ -37,6 +58,41 @@
 					"path": [
 						"foundations",
 						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reimbursement Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxMzJiMGM3Mi01MGJiLTRlMTQtODZlMS1hMzdmMGUzODI2M2MiLCJpc3MiOiJmb3VuZGF0aW9ucyIsImlhdCI6MTY0NjI1ODU0MCwiZXhwIjoxNjQ2MjYyMTQwLCJzdWIiOiJyeWFuT2F0cyIsInJvbGUiOiJBZG1pbiJ9.QMATcs5NVRyWZbEFf1PAu513VuXXQBemSqq8gWgmZbU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\" : 49.32,\n    \"description\" : \"a test reimbursement\",\n    \"receipt\" : \"abcdefG\",\n    \"author_id\" : \"be231580-d81f-440f-94d3-1ba74c628373\",\n    \"type\" : \"a reimbursement type\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/foundations/reimbursements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"foundations",
+						"reimbursements"
 					]
 				}
 			},
@@ -81,7 +137,42 @@
 			"response": []
 		},
 		{
-			"name": "Reimbursement Request",
+			"name": "Update Reimbursement Status",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIwNzlhMDMwNS05MWFlLTRjOTYtOTUyNC1kZjY4ZTMwMWZmOWIiLCJpc3MiOiJmb3VuZGF0aW9ucyIsImlhdCI6MTY0NjMyNDUxNCwiZXhwIjoxNjQ2MzI4MTE0LCJzdWIiOiJGaW5hbmNlUGVyc29uIiwicm9sZSI6IkZJTkFOQ0UgTUFOQUdFUiJ9.GziV6NN1E_GBBaUt5ZkasY4VYs1ABk1AvHnXXZ_fvvg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"author_id\":\"662c3781-897a-4e2d-a16e-57093a0976d8\",\n    \"resolver_id\": \"079a0305-91ae-4c96-9524-df68e301ff9b\",\n    \"status\": \"APPROVED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/foundations/reimbursements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"foundations",
+						"reimbursements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reimbursements",
 			"request": {
 				"method": "GET",
 				"header": []
