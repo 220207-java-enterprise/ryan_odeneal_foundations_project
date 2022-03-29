@@ -1,6 +1,5 @@
 package com.revature.foundations.dtos.requests;
 
-import com.revature.foundations.daos.UserDAO;
 import com.revature.foundations.models.*;
 import com.revature.foundations.util.Bytea;
 
